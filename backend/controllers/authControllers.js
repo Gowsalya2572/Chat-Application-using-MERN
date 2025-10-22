@@ -1,5 +1,6 @@
-import User from "../models/user.js";
+import User from '../models/user.js';
 import bcrypt from 'bcrypt';
+import  {generateToken} from '../lib/utils.js';
 
 
 export const signup = async(req,res)=>{
@@ -8,7 +9,7 @@ export const signup = async(req,res)=>{
       if (!fullName || !email || !password){
          res.status(400).json({message:"Please Fill All Details"});
       }
-      if (password.length >6){
+      if (password.length > 6){
          res.status(400).json({message:"Password must be atleast 6 characters"});
       }
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -25,10 +26,10 @@ export const signup = async(req,res)=>{
       const newUser =new User({
         fullName,
         email,
-        password: hashedPassword
+        password: hashedPassword,
       })
       
-      if(user){
+      if(newUser){
         generateToken(newUser._id,res);
         await newUser.save();
 
