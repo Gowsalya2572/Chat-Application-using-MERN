@@ -1,6 +1,7 @@
 import User from '../models/user.js';
 import bcrypt from 'bcrypt';
 import  {generateToken} from '../lib/utils.js';
+import cloudinary from '../lib/cloudinary.js';
 
 
 export const signup = async(req,res)=>{
@@ -71,8 +72,8 @@ export const login =async (req,res) => {
       profilePic: user.profilePic,
         });
   } catch (error) {
-      console.error("Error in longin controller");
-      res.status(500).json({message:"Internal server error"})
+      console.error("Error in login controller");
+      res.status(500).json({message:"Internal server error"});
       
   }
 };
@@ -82,3 +83,25 @@ export const logout = (_,res) => {
   res.cookie("jwt","",{maxAge:0});
   res.status(200).json({message:"Logged out successfully"});
 };
+
+export const updateProfile=async (req,res) => {
+  try {
+    const {profilePic}=req.body;
+    if(!profilePic) return res.status(400).json({message:"Profile pic is required"});
+
+    const userId=req.user._id;
+
+    const uploadResponse = await cloudinary.uploader.upload(profilePic);
+
+    const updatedUser=await User.findByIdAndUpdate(
+      userId,
+      {profilePic:uploadResponse.secure_url },
+      {new:true}
+    );
+
+    res.status(200).json(updatedUser);
+  } catch (error) {
+    console.error("Error in update profile");
+      res.status(500).json({message:"Internal server error"})
+  }
+}
