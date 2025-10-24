@@ -8,4 +8,6 @@ export const ENV={
     CLODINARY_CLOUD_NAME:process.env.CLODINARY_CLOUD_NAME,
     CLODINARY_API_KEY:process.env.CLODINARY_API_KEY,
     CLODINARY_API_SECRET:process.env.CLODINARY_API_SECRET,
+    ARCJET_KEY:process.env.ARCJET_KEY,
+    ARCJET_ENV:process.env.ARCJET_ENV,
 };
