@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 import {io} from 'socket.io-client';
 
 
-const BASE_URL = import.meta.env.MODE === "development" ? "http://localhost:8008" : "/"
+const BASE_URL = "chat-application-backend-phi-gilt.vercel.app";
 
 export const useAuthStore = create((set,get)=>({
     authUser : null,
