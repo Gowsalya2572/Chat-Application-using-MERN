@@ -1,6 +1,6 @@
 import axios from "axios";
 
 export const axiosInstance =axios.create({
-    baseURL: import.meta.env.MODE === "development"? "http://localhost:8008/api" : "/api",
+    baseURL: "chat-application-backend-phi-gilt.vercel.app",
     withCredentials: true,
 });
