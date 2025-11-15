@@ -21,6 +21,9 @@ app.use(cookieParser());
 app.use('/api/auth',authRoutes);
 app.use('/api/messages',messageRoutes);
 
+app.get("/", (req, res) => {
+  res.send("<h2>Chat App Backend Running Successfully 🚀</h2>");
+});
 
 server.listen(PORT,()=>{
     console.log("server is running port ", PORT);
