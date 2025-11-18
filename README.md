@@ -1,7 +1,7 @@
 Chat Application using MERN
 
 A full-stack real-time messaging app built using the MERN stack, featuring JWT authentication, Socket.io communication, 
-Cloudinary-based image uploads, a responsive UI with React and Tailwind CSS, and efficient state management using Zustand.
+Cloudinary-based image uploads, UI with React and Tailwind CSS, and efficient state management using Zustand.
 
 Tech stack
 
