@@ -7,17 +7,17 @@ Tech stack
 
 Frontend
 
-React.js,
-Tailwind CSS,
-DaisyUI,
-Zustand (state management),
-Axios (API communication),
-Socket.io-client (real-time messaging).
+- React.js,
+- Tailwind CSS,
+- DaisyUI,
+- Zustand (state management),
+- Axios (API communication),
+- Socket.io-client (real-time messaging).
 
 Backend
 
-Node.js,
-Express.js,
-MongoDB + Mongoose,
-Socket.io (WebSocket server),
-Arcjet (API rate-limiting).
+- Node.js,
+- Express.js,
+- MongoDB + Mongoose,
+- Socket.io (WebSocket server),
+- Arcjet (API rate-limiting).
